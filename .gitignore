@@ -3,6 +3,9 @@
 build/
 cmake-build-debug/
 out/
+bin/
+imgui.ini
+main
 # Prerequisites
 *.d
 
