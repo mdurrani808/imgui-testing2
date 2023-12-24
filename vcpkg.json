@@ -1,0 +1,26 @@
+{
+  "name": "my-test",
+  "version-string": "0.1.0",
+  "dependencies": [
+  {
+    "name": "opencv4",
+    "default-features": false,
+    "features": []
+  },
+
+    "fmt",
+    "sdl2",
+    {
+      "name": "imgui",
+      "features": [
+        "opengl3-binding",
+        "sdl2-binding",
+        "glfw-binding"
+      ]
+    },
+    "opengl",
+    "glad",
+    "glfw3",
+    "gl3w"
+  ]
+}

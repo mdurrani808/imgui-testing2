@@ -1,0 +1,10 @@
+^C:\USERS\MDURR\CODE\IMGUI-TESTING2\BIN\CMAKEFILES\29869890DE516675CDC7272E2EEF2412\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/mdurr/Code/imgui-testing2 -BC:/Users/mdurr/Code/imgui-testing2/bin --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/mdurr/Code/imgui-testing2/bin/my-test.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

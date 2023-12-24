@@ -1,0 +1,81 @@
+Detecting compiler hash for triplet x64-windows...
+All requested packages are currently installed.
+Total install time: 4.5 us
+The package fmt provides CMake targets:
+
+    find_package(fmt CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE fmt::fmt)
+
+    # Or use the header-only version
+    find_package(fmt CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE fmt::fmt-header-only)
+
+gl3w provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(gl3w CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE unofficial::gl3w::gl3w)
+
+glad provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(glad CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE glad::glad)
+
+glfw3 provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(glfw3 CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE glfw)
+
+glfw3 provides pkg-config modules:
+
+    # A multi-platform library for OpenGL, window and input
+    glfw3
+
+sdl2 provides CMake targets:
+
+    find_package(SDL2 CONFIG REQUIRED)
+    target_link_libraries(main
+        PRIVATE
+        $<TARGET_NAME_IF_EXISTS:SDL2::SDL2main>
+        $<IF:$<TARGET_EXISTS:SDL2::SDL2>,SDL2::SDL2,SDL2::SDL2-static>
+    )
+
+imgui provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(imgui CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE imgui::imgui)
+
+If you do not install the meta-port *opencv*, the package opencv4 is compatible with CMake
+if you set the OpenCV_DIR *before* the find_package call
+
+    set(OpenCV_DIR "${VCPKG_INSTALLED_DIR}/x64-windows/share/opencv4")
+    find_package(OpenCV REQUIRED)
+
+The package opengl is compatible with built-in CMake targets via CMake v3.7 and prior syntax
+
+    find_package(OpenGL REQUIRED)
+    target_link_libraries(main PRIVATE ${OPENGL_LIBRARIES})
+    target_include_directories(main PRIVATE ${OPENGL_INCLUDE_DIR})
+
+and the CMake v3.8 and beyond imported target syntax
+
+    find_package(OpenGL REQUIRED)
+    target_link_libraries(main PRIVATE OpenGL::GL)
+
+introduction of various components
+
+    find_package(OpenGL REQUIRED COMPONENTS GL      # v3.8
+                                            GLU     # v3.8
+                                            GLX     # v3.10
+                                            EGL     # v3.10
+                                            OpenGL) # v3.10
+
+The OpenGL SDK is highly platform dependent and is usually an OS component. It's not realistic to build from source for every platform.
+
+    WINDOWS: is part of the Windows SDK which this package installs.
+    LINUX: the SDK may be installed from your distro's repo or from 3rd parties manually. There are too many to count.
+    APPLE: consult your distribution vendor on the state of OpenGL support: https://support.apple.com/en-us/HT202823
+

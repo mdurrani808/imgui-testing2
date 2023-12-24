@@ -1,0 +1,10 @@
+^C:\USERS\MDURR\CODE\IMGUI-TESTING2\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/mdurr/Code/imgui-testing2 -BC:/Users/mdurr/Code/imgui-testing2/bin --check-stamp-file C:/Users/mdurr/Code/imgui-testing2/bin/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
