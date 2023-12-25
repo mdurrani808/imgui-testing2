@@ -15,10 +15,10 @@ int argmin(const std::vector<double>& vec) {
 bool isAllTrue(const std::vector<bool>& vec) {
     return std::all_of(vec.begin(), vec.end(), [](bool v) { return v; });
 }
-
+/*
 std::string brief(cv::Mat mat) {
     return brief(mat, 4, 4, 12, 12);
-}
+}*/
 
 std::string brief(cv::Mat mat, int firstRows, int lastRows, int firstRowData, int lastRowData) {
     const int acknowledgeRowsSkipped = 2000; // skip count to print an icon
@@ -78,7 +78,7 @@ void intToByteArray(int toBeConvertedInt, std::vector<unsigned char>& dst, int o
     toBeConvertedInt >>= 8;
     dst[offset + 0] = static_cast<unsigned char>(toBeConvertedInt); // most significant byte
 }
-
+/*
 std::vector<unsigned char> compress(const std::vector<unsigned char>& bytesToCompress) {
     uLongf compressedSize = compressBound(bytesToCompress.size());
     std::vector<unsigned char> compressedBytes(compressedSize);
@@ -89,7 +89,7 @@ std::vector<unsigned char> compress(const std::vector<unsigned char>& bytesToCom
 
     compressedBytes.resize(compressedSize);
     return compressedBytes;
-}
+}*/
 
 
 

@@ -78,7 +78,7 @@ int main(int argc, char* argv[])
 		std::cerr << "Failed to open the webcam." << std::endl;
 		return -1;
 	}
-e;
+
 	while (!glfwWindowShouldClose(window)) {
 		//initialize new frames
 		ImGui_ImplOpenGL3_NewFrame();

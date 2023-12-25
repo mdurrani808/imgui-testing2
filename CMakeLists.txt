@@ -6,6 +6,7 @@ project(
         VERSION 0.1.0
         LANGUAGES CXX
 )
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++20")
 set(OpenCV_DIR "${VCPKG_INSTALLED_DIR}/x64-windows/share/opencv4")
 
 # add all headers (.h, .hpp) to this
@@ -52,6 +53,6 @@ find_package(glfw3 CONFIG REQUIRED)
 find_package(gl3w CONFIG REQUIRED)
 
 
-add_executable(${PROJECT_NAME} ${PRJ_HEADERS} ${PRJ_SOURCES} ${PRJ_MAIN} "src/Header.h"  "src/ArrayUtils.cpp" "src/BoardPreview.cpp" "src/BoardPreview.h" "src/config.cpp" "src/Config.h")
+add_executable(${PROJECT_NAME} ${PRJ_HEADERS} ${PRJ_SOURCES} ${PRJ_MAIN} "src/Header.h"  "src/ArrayUtils.cpp" "src/BoardPreview.cpp" "src/BoardPreview.h" "src/config.cpp" "src/Config.h" "src/PoseGeneratiorDist.cpp")
 target_link_libraries(${PROJECT_NAME} PRIVATE ${PRJ_LIBRARIES})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCV_LIBS} )
